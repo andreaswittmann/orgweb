@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-30 Di 09:39 -->
+<!-- 2020-06-30 Di 17:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>live-scripting</title>
@@ -608,7 +608,7 @@ Dazu wird die Funktion  dotspacemacs/user-config erweitert.<br />
 <span style="color: #707183;">(</span><span style="color: #0000FF;">defun</span> <span style="color: #006699;">jnm/term-toggle-mode</span> <span style="color: #7388D6;">()</span>
   <span style="color: #036A07;">"Toggles term between line mode and char mode"</span>
   <span style="color: #7388D6;">(</span><span style="color: #0000FF;">interactive</span><span style="color: #7388D6;">)</span>
-  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span><span style="color: #0000FF;">term-in-line-mode</span><span style="color: #909183;">)</span>
+  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">if</span> <span style="color: #909183;">(</span>term-in-line-mode<span style="color: #909183;">)</span>
       <span style="color: #909183;">(</span>term-char-mode<span style="color: #909183;">)</span>
     <span style="color: #909183;">(</span>term-line-mode<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #707183;">)</span>
 <span style="color: #707183;">(</span>global-set-key <span style="color: #7388D6;">[</span>f8<span style="color: #7388D6;">]</span> 'jnm/term-toggle-mode<span style="color: #707183;">)</span>
@@ -798,8 +798,23 @@ cat &lt;&lt; EOF &gt; ~/.ssh/config
 <span style="color: #0000ff; background-color: #EEF5FE;">EOF</span>
  cat  ~/.ssh/config
 
-<span style="color: #8D8D84;">### </span><span style="color: #8D8D84; font-style: italic;">Copy the public Key to github</span>
+<span style="color: #8D8D84;">### </span><span style="color: #8D8D84; font-style: italic;">Copy the public Key to github via web gui</span>
 cat ~/.ssh/id_rsa_github.pub
+
+<span style="color: #8D8D84;">### </span><span style="color: #8D8D84; font-style: italic;">Prepare projects</span>
+cat ~/.ssh/id_rsa_github.pub
+<span style="color: #006FE0;">cd</span> ~/org/live-scripting
+git remote set-url origin ssh://git@github.com/andreaswittmann/live-scripting
+git remote -v
+
+<span style="color: #006FE0;">cd</span> ~/org/aw-org-html-themes
+git remote set-url origin ssh://git@github.com/andreaswittmann/aw-org-html-themes  
+git remote -v
+git push
+
+<span style="color: #006FE0;">cd</span> /var/www/html/orgweb/
+git remote -v
+git remote set-url origin ssh://git@github.com/andreaswittmann/orgweb   
 
 <span style="color: #8D8D84;">### </span><span style="color: #8D8D84; font-style: italic;">Check git operations</span>
 git pull -v 
@@ -813,14 +828,15 @@ Die folgende Abbildung zeigt, wie man den öffentlichen Schlüssel zum GitHub Pr
 </p>
 
 
-
 <div class="figure">
-<p><a target="_blank" href="2020-06-21_17-34-52_2020-06-21_17-15-37.png">2020-06-21_17-34-52_2020-06-21_17-15-37.png</a><br />
+<p><img src="images/Installation_unter_lubuntu/2020-06-30_10-26-47_2020-06-21_17-34-52_2020-06-21_17-15-37.png" alt="2020-06-30_10-26-47_2020-06-21_17-34-52_2020-06-21_17-15-37.png" /><br />
 </p>
 <p><span class="figure-number">Figure 1: </span>Öffentlichen Schlüssel zum GitHub Projekt hinzufügen.</p>
 </div>
 </div>
 </div>
+
+
 
 <div id="outline-container-orgb5cd2ab" class="outline-4">
 <h4 id="orgb5cd2ab"><span class="section-number-4">2.3.6</span> Konfiguration von org-download&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h4>
@@ -835,14 +851,14 @@ Org-Download bietet zwei Methoden zum abspeichern der Dateien. Ich möchte den O
 Dazu muss die Variable org-download-method per Customization angepasst werden.<br />
 </p>
 
-
-<div class="figure">
-<p><a target="_blank" href="2020-06-21_17-52-54_2020-06-21_17-51-44.png">2020-06-21_17-52-54_2020-06-21_17-51-44.png</a><br />
+<p>
+[[<a target="_blank" href="2020-06-21_17-52-54_2020-06-21_17-51-44.png">2020-06-21_17-52-54_2020-06-21_17-51-44.png</a>]<br />
 </p>
-<p><span class="figure-number">Figure 2: </span>Customization von org-download-method um auf org-attach umzustellen.</p>
 </div>
 </div>
-</div>
+
+
+
 
 
 <div id="outline-container-orgebb852e" class="outline-4">
@@ -1120,7 +1136,7 @@ Beispiel für ein eingebettetes Bild:<br />
 <div class="figure">
 <p><img src="images/Installation_unter_lubuntu/2020-06-24_11-21-33_banana.jpeg" alt="2020-06-24_11-21-33_banana.jpeg" /><br />
 </p>
-<p><span class="figure-number">Figure 3: </span>Eingebettete Bild-Datei</p>
+<p><span class="figure-number">Figure 2: </span>Eingebettete Bild-Datei</p>
 </div>
 
 <p>
@@ -1432,13 +1448,13 @@ In this approach the published website becomes it's own GitHub project.<br />
 There are the following activities:<br />
 </p>
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> Create new GitHub Project orgweb.<br /></li>
-<li class="off"><code>[&#xa0;]</code> Clone orgweb to local publish site.<br /></li>
-<li class="off"><code>[&#xa0;]</code> Insert public key on GitHub to push without password<br /></li>
-<li class="off"><code>[&#xa0;]</code> Use org-publish to create the project.<br /></li>
-<li class="off"><code>[&#xa0;]</code> Use Magit to publish site to GitHub<br /></li>
+<li class="on"><code>[X]</code> Create new GitHub Project orgweb.<br /></li>
+<li class="on"><code>[X]</code> Clone orgweb to local publish site.<br /></li>
+<li class="on"><code>[X]</code> Insert public key on GitHub to push without password<br /></li>
+<li class="on"><code>[X]</code> Use org-publish to create the project.<br /></li>
+<li class="on"><code>[X]</code> Use Magit to publish site to GitHub<br /></li>
 <li class="off"><code>[&#xa0;]</code> Write script to automatically commit on push on every org-publish<br /></li>
-<li class="off"><code>[&#xa0;]</code> Update FixStyleFolder to use relative links.<br /></li>
+<li class="on"><code>[X]</code> Update FixStyleFolder to use relative links.<br /></li>
 </ul>
 
 <p>
@@ -1449,6 +1465,51 @@ That's it.<br />
 
 <div id="outline-container-org80412fd" class="outline-5">
 <h5 id="org80412fd"><span class="section-number-5">2.6.2.2</span> GitHub Project orgweb.</h5>
+<div class="outline-text-5" id="text-2-6-2-2">
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #8D8D84;">### </span><span style="color: #8D8D84; font-style: italic;">Clean up and clone Website.</span>
+sudo rm -rf /var/www/html/orgweb/
+ham2burg
+<span style="color: #006FE0;">cd</span> /var/www/html/
+ls -la
+
+sudo git clone https://github.com/andreaswittmann/orgweb.git
+sudo chown -R lubuntu:lubuntu  /var/www/html/orgweb/
+<span style="color: #006FE0;">cd</span> /var/www/html/orgweb/
+
+<span style="color: #8D8D84;">### </span><span style="color: #8D8D84; font-style: italic;">Fix symbolic links</span>
+find . -type l 
+
+<span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">one level</span>
+<span style="color: #006FE0;">cd</span> /var/www/html/orgweb/./styles/
+<span style="color: #006FE0;">cd</span> /var/www/html/orgweb/./live-scripting/
+rm styles
+ln -s ../styles styles
+ls -la 
+ls styles
+
+<span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">two levels</span>
+<span style="color: #006FE0;">cd</span> /var/www/html/orgweb/./aw-org-html-themes/demo/
+<span style="color: #006FE0;">cd</span> /var/www/html/orgweb/./aw-org-html-themes/styles/
+<span style="color: #006FE0;">cd</span> /var/www/html/orgweb/./live-scripting/moreorg/
+rm styles
+ln -s ../../styles styles
+ls -la 
+ls styles
+
+<span style="color: #8D8D84;">## </span><span style="color: #8D8D84; font-style: italic;">three levels</span>
+<span style="color: #006FE0;">cd</span> /var/www/html/orgweb/./aw-org-html-themes/styles/readtheorg
+rm styles
+ln -s ../../../styles styles
+ls -la 
+</pre>
+</div>
+
+
+<p>
+The site can be found at: <a href="https://andreaswittmann.github.io/orgweb/sitemap.html">https://andreaswittmann.github.io/orgweb/sitemap.html</a><br />
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -1456,7 +1517,7 @@ That's it.<br />
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: lubuntu</p>
-<p class="date">Created: 2020-06-30 Di 09:39</p>
+<p class="date">Created: 2020-06-30 Di 17:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
